@@ -21,11 +21,13 @@
   --primary-bg-color: #ffffff;
   --hero-bg-color: #2f303a;
   --team-bg-color: #f5f4fa;
+  --feature-icon-bg-color: #f5f4fa;
   --footer-bg-color: #2f303a;
 
   /* цвет рамка */
   --header-border-color: #ececec;
   --portfolio-card-border-color: #eeeeee;
+  --client-border-color: #afb1b8;
 
   /* Расстояние между элементами в сетке */
   --gap: 30px;
@@ -35,7 +37,7 @@ body {
   background-color: var(--primary-bg-color);
   color: var(--primary-text-color);
 
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 
   letter-spacing: 0.03em;
 }
@@ -162,13 +164,13 @@ img {
   display: flex;
   align-items: center;
 }
-/* отодвигаем конакты впрово */
+/* отодвигаем контакты впрово */
 .header-contact {
   margin-left: auto;
 }
 /* раздвигаем элементы контакты */
 .header-contact .list-item:not(:last-child) {
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 /* Logo Header*/
@@ -208,16 +210,24 @@ img {
 }
 
 /* Header Contacts */
-.header-contact .link {
+.header-contact-link {
   color: var(--primary-text-color);
 
   font-weight: 500;
   font-size: 14px;
   line-height: 1.17;
   letter-spacing: 0.02em;
+
+  display: flex;
+  align-items: center;
 }
-.header-contact .link:hover,
-.header-contact .link:focus {
+.contact-link-thumb {
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+.header-contact-link:hover,
+.header-contact-link:focus {
   color: var(--accent-color);
 }
 
@@ -226,6 +236,20 @@ img {
   background-color: var(--hero-bg-color);
   padding: 200px 0;
   text-align: center;
+
+  max-width: 1600px;
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/hero.jpg);
+  /* background-repeat: no-repeat;
+  background-position: center; */
+  background-size: cover;
 }
 
 .hero-title {
@@ -262,12 +286,12 @@ img {
   background-color: var(--accent-color-hover-hero-button);
 }
 
-/* ================ Section Особенности ================ */
+/* ================ Section Преимущества ================ */
 /* Убираю верхний падинг, который отсутствует только в этой секции */
 .section-feature {
   padding-bottom: 0;
 }
-/* Карточка Особенности */
+/* Карточка Преимущества */
 .feature-title {
   font-size: 14px;
   line-height: 1.17;
@@ -299,6 +323,41 @@ img {
   margin-right: 30px;
 } */
 
+/* .feature-list-item::before {
+  content: "";
+  display: block;
+  width: 270px;
+  height: 120px;
+  margin-bottom: var(--gap);
+  background-color: var(--feature-icon-bg-color);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-size: auto;
+}
+
+.feature-list-item:nth-child(1)::before {
+  background-image: url("../images/feature1.svg");
+}
+
+.feature-list-item:nth-child(2)::before {
+  background-image: url("../images/feature2.svg");
+}
+
+.feature-list-item:nth-child(3)::before {
+  background-image: url("../images/feature3.svg");
+}
+
+.feature-list-item:nth-child(4)::before {
+  background-image: url("../images/feature4.svg");
+} */
+
+.feature-thumb {
+  margin-bottom: var(--gap);
+  background-color: var(--feature-icon-bg-color);
+  height: 120px;
+  padding: 25px 100px;
+}
 /* ================= Section Чем мы занимаемся ================ */
 .opportunity-title {
   margin-bottom: 50px;
@@ -324,8 +383,8 @@ img {
 /* ===================== Section Команда ==================== */
 .section-team {
   background-color: var(--team-bg-color);
-  padding-top: 94px;
-  padding-bottom: 94px;
+  /* padding-top: 94px;
+  padding-bottom: 94px; */
 }
 
 .team-title {
@@ -334,10 +393,10 @@ img {
 }
 /* Карточка Команда */
 .team-list-content {
-  padding: 30px 10px;
-  /* верхний и нижний падинги по 30 взяты с макета
-  а боковые падинги по 10 придумал сам 
-  для защиты от переполнения */
+  padding: 30px 32px;
+  box-shadow: 0px 2px 1px 0px #00000033;
+  box-shadow: 0px 1px 1px 0px #00000024;
+  box-shadow: 0px 1px 3px 0px #0000001f;
 }
 
 .team-persona {
@@ -353,6 +412,7 @@ img {
   font-size: 16px;
   line-height: 1.17;
   text-align: center;
+  margin-bottom: 16px;
 }
 /* Расставляяем Team карточки по сетке и задаем размер */
 .team-list {
@@ -373,6 +433,80 @@ img {
   margin-right: 30px;
 } */
 
+/* Team Social Links */
+.team-social-list {
+  display: flex;
+  justify-content: space-between;
+  width: 206px;
+}
+
+.team-social-item-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+.team-social-list-icon {
+  fill: #afb1b8;
+}
+
+.team-social-item-link:hover,
+.team-social-item-link:focus {
+  background-color: var(--accent-color);
+}
+
+.team-social-item-link:hover > .team-social-list-icon,
+.team-social-item-link:focus > .team-social-list-icon {
+  fill: var(--active-button-text-color);
+}
+
+/* ================== Section Клиенты =============== */
+.client-title {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.client-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: calc(-1 * var(--gap));
+  margin-top: calc(-1 * var(--gap));
+}
+
+.client-list-item {
+  margin-left: var(--gap);
+  margin-top: var(--gap);
+  flex-basis: calc(100% / 6 - var(--gap));
+}
+
+.client-item-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--client-border-color);
+  border-radius: 4px;
+}
+
+.client-item-link:hover,
+.client-item-link:focus {
+  border: 1px solid var(--accent-color);
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* уточнить размеры */
+.client-item-icon {
+  width: 85px;
+  height: 45px;
+}
+
 /* ===================== Footer ======================*/
 .footer {
   background-color: var(--footer-bg-color);
@@ -381,8 +515,13 @@ img {
   /* margin-right: 0; */
 }
 
+.footer-container {
+  display: flex;
+  align-items: baseline;
+}
+
 .footer-contact {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 /* Logo Footer*/
@@ -413,6 +552,44 @@ img {
   margin-bottom: 9px;
 }
 
+/* Footer Social Links */
+.footer-social-links {
+  margin-left: 70px;
+}
+
+.footer-social-paragraf {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.17;
+  color: var(--hero-text-color);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer-social-list {
+  display: flex;
+  justify-content: space-between;
+  width: 206px;
+}
+
+.footer-social-item-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-list-icon {
+  fill: var(--active-button-text-color);
+}
+
+.footer-social-item-link:hover,
+.footer-social-item-link:focus {
+  background-color: var(--accent-color);
+}
 /* =================== Section Портфолио =============== */
 
 /* Portfolio Filter Button */
@@ -431,6 +608,9 @@ img {
 .portfolio-filter-button:focus {
   color: var(--active-button-text-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 2px 2px 0px #0000001f;
+  box-shadow: 0px 1px 2px 0px #00000014;
+  box-shadow: 0px 3px 1px 0px #0000001a;
 }
 
 /* Ставим кнопки фильтра Portfolio в ряд */
@@ -483,4 +663,9 @@ img {
   margin-left: var(--gap);
   margin-top: var(--gap);
   flex-basis: calc(100% / 3 - var(--gap));
+}
+
+.project-list-item:hover,
+.project-list-item:focus {
+  box-shadow: 0px 4px 4px 0px #00000040;
 }
