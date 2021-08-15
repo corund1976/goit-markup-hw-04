@@ -162,7 +162,7 @@ img {
 /* выстраиваем в ряд элементы контакты */
 .header-contact {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 /* отодвигаем контакты впрово */
 .header-contact {
@@ -238,7 +238,6 @@ img {
   text-align: center;
 
   max-width: 1600px;
-  height: 480px;
   margin-left: auto;
   margin-right: auto;
   background-image: linear-gradient(
@@ -358,6 +357,7 @@ img {
   height: 120px;
   padding: 25px 100px;
 }
+
 /* ================= Section Чем мы занимаемся ================ */
 .opportunity-title {
   margin-bottom: 50px;
@@ -392,7 +392,7 @@ img {
   text-align: center;
 }
 /* Карточка Команда */
-.team-list-content {
+.team-card-content {
   padding: 30px 32px;
   box-shadow: 0px 2px 1px 0px #00000033;
   box-shadow: 0px 1px 1px 0px #00000024;
@@ -422,7 +422,7 @@ img {
   margin-top: calc(-1 * var(--gap));
 }
 
-.team-list-item {
+.team-card {
   background-color: var(--primary-bg-color);
   margin-left: var(--gap);
   margin-top: var(--gap);
@@ -450,7 +450,7 @@ img {
   /* background-color: rgba(255, 255, 255, 0.1); */
 }
 
-.team-social-list-icon {
+.team-social-icon {
   fill: #afb1b8;
 }
 
@@ -459,8 +459,8 @@ img {
   background-color: var(--accent-color);
 }
 
-.team-social-item-link:hover > .team-social-list-icon,
-.team-social-item-link:focus > .team-social-list-icon {
+.team-social-item-link:hover > .team-social-icon,
+.team-social-item-link:focus > .team-social-icon {
   fill: var(--active-button-text-color);
 }
 
@@ -553,7 +553,7 @@ img {
 }
 
 /* Footer Social Links */
-.footer-social-links {
+.footer-social {
   margin-left: 70px;
 }
 
@@ -568,11 +568,15 @@ img {
 
 .footer-social-list {
   display: flex;
-  justify-content: space-between;
-  width: 206px;
+  /* justify-content: space-between;
+  width: 206px; */
 }
 
-.footer-social-item-link {
+.footer-social-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.footer-social-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -582,12 +586,12 @@ img {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.social-list-icon {
+.footer-social-icon {
   fill: var(--active-button-text-color);
 }
 
-.footer-social-item-link:hover,
-.footer-social-item-link:focus {
+.footer-social-link:hover,
+.footer-social-link:focus {
   background-color: var(--accent-color);
 }
 /* =================== Section Портфолио =============== */
@@ -627,31 +631,27 @@ img {
 }
 
 /* Portfolio Карточки */
+.project-card-content {
+  padding: 20px 24px;
+  border: 1px solid var(--portfolio-card-border-color);
+  border-top: none;
+}
 
-.project-title {
-  /* font-weight: 700; */
+.project-card-title {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
   margin-bottom: 4px;
 }
 
-.project-descriptor {
+.project-card-text {
   color: var(--primary-text-color);
   /* font-weight: 400; */
   font-size: 16px;
   line-height: 1.87;
 }
 
-.project-card-text {
-  border: 1px solid var(--portfolio-card-border-color);
-  border-top: none;
-
-  padding: 20px 24px;
-}
-
 /* Расставляяем Portfolio карточки по сетке и задаем размер */
-
 .project-list {
   display: flex;
   flex-wrap: wrap;
@@ -659,13 +659,14 @@ img {
   margin-top: calc(-1 * var(--gap));
 }
 
-.project-list-item {
+.project-card {
   margin-left: var(--gap);
   margin-top: var(--gap);
   flex-basis: calc(100% / 3 - var(--gap));
 }
 
-.project-list-item:hover,
-.project-list-item:focus {
+/* Ховер на карточку - тень */
+.project-card .project-card-link:hover,
+.project-card .project-card-link:focus {
   box-shadow: 0px 4px 4px 0px #00000040;
 }
