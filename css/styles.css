@@ -666,7 +666,11 @@ img {
 }
 
 /* Ховер на карточку - тень */
-.project-card .project-card-link:hover,
-.project-card .project-card-link:focus {
+.project-card-link {
+  display: block;
+}
+
+.project-card-link:hover,
+.project-card-link:focus {
   box-shadow: 0px 4px 4px 0px #00000040;
 }
