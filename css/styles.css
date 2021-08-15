@@ -131,44 +131,43 @@ img {
 }
 
 /* ================= Header ================ */
+/* рисуем нижнюю границу Header */
 .header {
-  /* padding-top: 24px;
-  padding-bottom: 25px; */
   border-bottom: 1px solid var(--header-border-color);
 }
-/* выстраиваем в ряд навигацию (лого+нав) и контакты */
+/* выстраиваем в ряд "Nav" навигацию (лого+нав) и "Header-contact" контакты в шапке */
 .header-container {
   display: flex;
   align-items: center;
 }
-/* выстраиваем в ряд лого, меню навигации и контакты */
+/* выстраиваем в ряд "Logo" лого и "Site-nav" меню навигации */
 .nav {
   display: flex;
   align-items: center;
 }
-/* выстраиваем в ряд элементы меню навигации */
+/* выстраиваем в ряд элементы "Site-nav" меню навигации: "Студия", "Портфолио" и "Контакты" */
 .site-nav {
   display: flex;
   align-items: center;
 }
-/* отодвигаем от лого вправо меню навигации */
+/* отодвигаем от "Logo" лого вправо "Site-nav" меню навигации */
 .logo {
   margin-right: 93px;
 }
-/* раздвигаем элементы меню навигации */
+/* раздвигаем элементы "Site-nav" меню навигации */
 .site-nav .list-item:not(:last-child) {
   margin-right: 50px;
 }
-/* выстраиваем в ряд элементы контакты */
+/* выстраиваем в ряд элементы "Header-contact" контакты email и phone*/
 .header-contact {
   display: flex;
   /* align-items: center; */
 }
-/* отодвигаем контакты впрово */
+/* отодвигаем контакты "Header-contact" впрово */
 .header-contact {
   margin-left: auto;
 }
-/* раздвигаем элементы контакты */
+/* раздвигаем элементы контакты "Header-contact" */
 .header-contact .list-item:not(:last-child) {
   margin-right: 30px;
 }
@@ -218,9 +217,12 @@ img {
   line-height: 1.17;
   letter-spacing: 0.02em;
 
+  /* Расставляем в ряд иконки с текстом внутри блоков "header-contact" */
   display: flex;
   align-items: center;
 }
+/* отступ иконки от текста внутри блоков "header-contact" и 
+   красим иконку в цвет текста*/
 .contact-link-thumb {
   margin-right: 10px;
   fill: currentColor;
@@ -355,7 +357,11 @@ img {
   margin-bottom: var(--gap);
   background-color: var(--feature-icon-bg-color);
   height: 120px;
-  padding: 25px 100px;
+  /* выравниваем иконку по центру */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 25px 100px; */
 }
 
 /* ================= Section Чем мы занимаемся ================ */
@@ -392,6 +398,7 @@ img {
   text-align: center;
 }
 /* Карточка Команда */
+/* делаем тень на каждую карточку Team */
 .team-card-content {
   padding: 30px 32px;
   box-shadow: 0px 2px 1px 0px #00000033;
