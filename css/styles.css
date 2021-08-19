@@ -200,14 +200,28 @@ img {
 
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
 }
+/* Текущая страница в панели навигации выделена цветом */
 .site-nav .link.current {
   color: var(--accent-color);
+}
+
+.site-nav .link.current::after {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  margin-top: 27px;
+  background-color: var(--accent-color);
 }
 
 /* Header Contacts */
@@ -222,17 +236,20 @@ img {
   /* Расставляем в ряд иконки с текстом внутри блоков "header-contact" */
   display: flex;
   align-items: center;
-}
-/* отступ иконки от текста внутри блоков "header-contact" и 
-   красим иконку в цвет текста*/
-.contact-link-thumb {
-  margin-right: 10px;
-  fill: currentColor;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact-link:hover,
 .header-contact-link:focus {
   color: var(--accent-color);
+}
+
+/* отступ иконки от текста внутри блоков "header-contact" и 
+   красим иконку в цвет текста*/
+.contact-link-thumb {
+  margin-right: 10px;
+  fill: currentColor;
 }
 
 /* ================ Section Hero =============== */
@@ -282,6 +299,8 @@ img {
   padding: 10px 32px; /* защита от прижимания к границам при переполнении */
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-hero .button:hover,
@@ -366,7 +385,7 @@ img {
   /* padding: 25px 100px; */
 }
 
-/* ================= Section Чем мы занимаемся ================ */
+/* ================= Section Opportunity ================ */
 .opportunity-title {
   margin-bottom: 50px;
   text-align: center;
@@ -387,6 +406,32 @@ img {
 /* .section-opportunity .list-item:not(:last-child) {
   margin-right: 30px;
 } */
+
+/* Overlay на карточки Opportunity */
+.opportunity-item-overlay {
+  font-size: 14px;
+  /* font-weight: 700; */
+  line-height: 1.17;
+  color: var(--hero-text-color);
+  background-color: rgba(47, 48, 58, 0.8);
+
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  overflow: auto;
+}
+
+.opportunity-item-wrapper {
+  position: relative;
+}
 
 /* ===================== Section Команда ==================== */
 .section-team {
@@ -449,6 +494,10 @@ img {
   width: 206px;
 }
 
+.team-social-icon {
+  fill: #afb1b8;
+}
+
 .team-social-item-link {
   display: flex;
   justify-content: center;
@@ -456,11 +505,10 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  /* background-color: rgba(255, 255, 255, 0.1); */
-}
 
-.team-social-icon {
-  fill: #afb1b8;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* background-color: rgba(255, 255, 255, 0.1); */
 }
 
 .team-social-item-link:hover,
@@ -507,6 +555,8 @@ img {
 
 .client-item-link {
   fill: var(--client-color);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-item-link:hover,
@@ -551,6 +601,8 @@ img {
   /* font-weight: 400; */
   font-size: 14px;
   line-height: 1.71;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contact .link-dark {
@@ -598,6 +650,8 @@ img {
   height: 44px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-icon {
@@ -620,6 +674,8 @@ img {
   line-height: 1.63;
 
   padding: 6px 22px;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-filter-button:hover,
@@ -682,9 +738,93 @@ img {
 /* Ховер на карточку - тень */
 .project-card-link {
   display: block;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card-link:hover,
 .project-card-link:focus {
   box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+/* делаем Overlay на карточку */
+.project-card-overlay {
+  font-size: 18px;
+  line-height: 1.56;
+  padding: 63px 24px;
+  color: var(--hero-text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+  transform: translateY(100%);
+  transition: transform 500ms linear;
+}
+
+.project-card-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-link:hover .project-card-overlay,
+.project-card-link:focus .project-card-overlay {
+  transform: translateY(0%);
+}
+
+/* ================== Модальное окно ================== */
+
+/* Backdrop задний фон для Модального окна*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 500ms linear, visibility 500ms linear;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+/* Модальное окно "Заказать услугу" */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--primary-bg-color);
+  border-radius: 4px;
+}
+/* Кнопка Х закрытия модального окна */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  /* круглая рамка вокруг Х */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 0;
+  /* центруем Х в круглой рамке */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
 }
